@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* ---------- Animated background with floating circles (enhanced) ---------- */
+        /* Animated background with floating circles */
         .area {
             position: fixed;
             top: 0;
@@ -82,7 +81,7 @@
             }
         }
 
-        /* ---------- main container & glassmorphism ---------- */
+        /* main container & glassmorphism */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -108,14 +107,47 @@
             box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.4);
         }
 
-        /* header section */
+        /* Header with profile picture - larger size and centered beautifully */
         header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             margin-bottom: 2.5rem;
         }
 
+        /* Profile circle - LARGER size, perfect alignment */
+        .profile-wrapper {
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(56, 189, 248, 0.7);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 0 8px rgba(56, 189, 248, 0.1);
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            transition: all 0.3s ease;
+        }
+
+        .profile-circle:hover {
+            transform: scale(1.03);
+            border-color: #38bdf8;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5), 0 0 0 10px rgba(56, 189, 248, 0.15);
+        }
+
+        /* For responsive: on smaller screens, adjust size */
+        @media (max-width: 700px) {
+            .profile-circle {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
         header h1 {
-            font-size: 4rem;
+            font-size: 3.8rem;
             font-weight: 800;
             background: linear-gradient(135deg, #ffffff, #94a3f8, #38bdf8);
             background-clip: text;
@@ -123,13 +155,14 @@
             color: transparent;
             letter-spacing: -0.02em;
             text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 0.5rem;
         }
 
         .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 400;
             color: #cbd5e1;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
         }
 
         #typewriter {
@@ -143,6 +176,34 @@
         @keyframes blinkCursor {
             0%, 100% { border-color: #38bdf8; }
             50% { border-color: transparent; }
+        }
+
+        /* badge styling */
+        .badge-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1.2rem;
+        }
+        .badge-list li {
+            background: rgba(56, 189, 248, 0.15);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .badge-list li:hover {
+            background: rgba(56, 189, 248, 0.3);
+            transform: translateY(-2px);
+        }
+        .badge-list li i {
+            margin-right: 8px;
+            color: #38bdf8;
         }
 
         /* boxes */
@@ -207,7 +268,6 @@
             transition: width 1s ease-out;
         }
 
-        /* special for soft skills progress alternative tint */
         .skill-box:last-child .progress {
             background: linear-gradient(90deg, #10b981, #34d399);
         }
@@ -236,7 +296,10 @@
             transform: scale(1.02);
         }
 
-        /* social links / footer */
+        /* Contact / Social section - Enhanced with email & github */
+        .contact-section {
+            margin-top: 0.5rem;
+        }
         .social-links {
             margin-top: 20px;
             display: flex;
@@ -248,7 +311,7 @@
         .social-icon {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(8px);
-            padding: 0.8rem 1.8rem;
+            padding: 0.9rem 2rem;
             border-radius: 60px;
             color: white;
             text-decoration: none;
@@ -266,26 +329,31 @@
         }
 
         .social-icon:hover {
-            background: #0077b5;
-            border-color: #0077b5;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px -8px rgba(0, 119, 181, 0.5);
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.4);
         }
 
-        .social-icon:last-child:hover {
+        /* Individual hover colors */
+        .social-icon.linkedin:hover {
+            background: #0077b5;
+            border-color: #0077b5;
+        }
+        .social-icon.github:hover {
+            background: #333;
+            border-color: #fff;
+        }
+        .social-icon.email:hover {
             background: #ea4335;
             border-color: #ea4335;
-            box-shadow: 0 10px 20px -8px rgba(234, 67, 53, 0.4);
         }
 
         footer p {
             text-align: center;
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             font-size: 0.8rem;
             opacity: 0.6;
         }
 
-        /* additional intro / about enhancement */
         .highlight-text {
             font-size: 1.05rem;
             line-height: 1.6;
@@ -296,13 +364,12 @@
             font-weight: 600;
         }
 
-        /* Responsive */
         @media (max-width: 700px) {
             .container {
                 padding: 1.2rem;
             }
             header h1 {
-                font-size: 2.6rem;
+                font-size: 2.4rem;
             }
             .subtitle {
                 font-size: 1.2rem;
@@ -313,27 +380,29 @@
             h2 {
                 font-size: 1.4rem;
             }
+            .social-icon {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
         }
-
-        /* utility */
-        .badge-list {
-            list-style: none;
+        
+        /* Quick contact info row */
+        .contact-info-row {
             display: flex;
+            justify-content: center;
+            gap: 2rem;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 15px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
         }
-        .badge-list li {
-            background: rgba(56, 189, 248, 0.15);
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+        .contact-info-row span {
+            background: rgba(255,255,255,0.05);
+            padding: 5px 15px;
+            border-radius: 30px;
         }
-        hr {
-            border-color: rgba(255,255,255,0.1);
-            margin: 20px 0;
+        .contact-info-row i {
+            margin-right: 8px;
+            color: #38bdf8;
         }
     </style>
 </head>
@@ -348,25 +417,32 @@
 
 <div class="container">
     <header>
+        <!-- Profile Picture Circle - LARGE and centered, perfect size -->
+        <div class="profile-wrapper">
+            <img class="profile-circle" 
+                 src="my photo.avif" 
+                 alt="Muskan Imtiaz Profile Picture"
+                 onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg'">
+        </div>
         <h1>Muskan Imtiaz</h1>
         <p class="subtitle">I am a <span id="typewriter"></span></p>
-        <div style="margin-top: 1rem;">
-            <span class="badge-list" style="justify-content: center; gap: 12px;">
+        <div style="margin-top: 0.5rem;">
+            <ul class="badge-list">
                 <li><i class="fas fa-code"></i> Web dev</li>
                 <li><i class="fas fa-brain"></i> AI Explorer</li>
                 <li><i class="fas fa-pen-fancy"></i> Novelist</li>
-            </span>
+            </ul>
         </div>
     </header>
 
-    <!-- Introduction Section (enhanced from your description) -->
+    <!-- Introduction Section -->
     <section class="box glass">
         <h2><i class="fas fa-user-astronaut"></i> Introduction</h2>
         <p class="highlight-text">Hi, I am <strong>Muskan</strong>. I am a Computer Science student deeply fascinated by technology and AI. I have chosen CS because I love creating digital solutions — from simple websites to exploring intelligent systems. I enjoy bringing ideas to life with code, and my ultimate goal is to become a successful <strong>Artificial Intelligence Specialist</strong>.</p>
         <p class="highlight-text" style="margin-top: 12px;">I'm currently mastering HTML, CSS, and JavaScript to build interactive and attractive web experiences. I believe consistent learning and creative thinking pave the way to innovation. My projects reflect my passion for neat designs and user-friendly interfaces.</p>
     </section>
 
-    <!-- About Me + extra personal touch -->
+    <!-- About Me -->
     <section class="box glass">
         <h2><i class="fas fa-heart"></i> About Me</h2>
         <p>I am a motivated, hardworking individual who spends time solving real-world problems through technology. I enjoy learning new frameworks, exploring AI concepts, and building projects that make a difference. My dream is to work at the intersection of AI and creative arts — building intelligent tools that also feel human. Every day, I push my boundaries to learn something new, whether it's a coding challenge or writing a novel chapter.</p>
@@ -377,7 +453,7 @@
         </div>
     </section>
 
-    <!-- Skills: Technical + Soft & Creative (professional progress bars) -->
+    <!-- Skills: Technical + Soft & Creative -->
     <div class="flex-container">
         <section class="box glass skill-box">
             <h2><i class="fas fa-microchip"></i> Technical Skills</h2>
@@ -420,7 +496,7 @@
         </section>
     </div>
 
-    <!-- Future Goals Section (rich text) -->
+    <!-- Future Goals -->
     <section class="box glass">
         <h2><i class="fas fa-rocket"></i> Future Goals</h2>
         <p>My primary ambition is to become an <strong>AI Expert</strong> and develop intelligent systems that assist people in daily life. I plan to master advanced programming languages, dive deep into machine learning, and build meaningful projects. In the short term, I want to create full-stack web apps and collaborate on open-source AI research. Ultimately, I envision building ethical AI that enhances creativity and accessibility.</p>
@@ -431,7 +507,7 @@
         </div>
     </section>
 
-    <!-- Hobbies: enriched from given info -->
+    <!-- Hobbies -->
     <section class="box glass">
         <h2><i class="fas fa-palette"></i> Hobbies & Passions</h2>
         <div class="hobbies">
@@ -447,42 +523,42 @@
         <p style="margin-top: 20px; font-size: 0.9rem;">I channel my creative energy into storytelling and video editing, which helps me design more empathetic tech solutions. Also an avid learner — always watching tech talks & exploring AI breakthroughs.</p>
     </section>
 
-    <!-- Additional skills summary: quick view -->
-    <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 30px;">
-        <div class="glass" style="padding: 12px 24px; border-radius: 60px;"><i class="fab fa-html5"></i> HTML/CSS</div>
-        <div class="glass" style="padding: 12px 24px; border-radius: 60px;"><i class="fab fa-js"></i> JavaScript</div>
-        <div class="glass" style="padding: 12px 24px; border-radius: 60px;"><i class="fas fa-brain"></i> AI Enthusiast</div>
-        <div class="glass" style="padding: 12px 24px; border-radius: 60px;"><i class="fas fa-video"></i> Video Editor</div>
-        <div class="glass" style="padding: 12px 24px; border-radius: 60px;"><i class="fas fa-book"></i> Novelist</div>
-    </div>
-
-    <footer>
+    <!-- Contact Section - Email & GitHub added (exactly as requested) -->
+    <section class="box glass contact-section">
+        <h2><i class="fas fa-address-card"></i> Connect With Me</h2>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/muskan-imtiaz-3ab667319" target="_blank" class="social-icon">
+            <a href="https://www.linkedin.com/in/muskan-imtiaz-3ab667319" target="_blank" class="social-icon linkedin">
                 <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-            <a href="mailto:imtiazmuskan230@gmail.com" class="social-icon">
+            <a href="https://github.com/muskanjutt16" target="_blank" class="social-icon github">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:imtiazmuskan230@gmail.com" class="social-icon email">
                 <i class="fas fa-envelope"></i> Email Me
             </a>
-            <a href="#" class="social-icon" id="portfolioCta">
-                <i class="fas fa-hand-peace"></i> Say Hello!
-            </a>
         </div>
+        <!-- Extra contact info row for clarity -->
+        <div class="contact-info-row">
+            <span><i class="fas fa-envelope"></i> imtiazmuskan230@gmail.com</span>
+            <span><i class="fab fa-github"></i> github.com/muskanjutt16</span>
+        </div>
+    </section>
+
+    <footer>
         <p>© 2026 Muskan Imtiaz — Future AI Specialist & Creative Technologist. All visions crafted with passion.</p>
     </footer>
 </div>
 
 <script>
-    // ----------------------------------------------
-    // 1) Enhanced Typewriter Effect (more dynamic)
-    // ----------------------------------------------
+    // --------------------------------------------------
+    // Typewriter Effect with enhanced phrases
+    // --------------------------------------------------
     const textElement = document.getElementById("typewriter");
     const phrases = [
+        "Creative Storyteller.",
         "Computer Science Student.",
         "Future AI Specialist.",
         "Professional Novelist.",
-        "Video Editor.",
-        "Creative Storyteller.",
         "Web Developer."
     ];
     let phraseIndex = 0;
@@ -502,7 +578,7 @@
         let speed = isDeleting ? 40 : 85;
         if (!isDeleting && charIndex === current.length) {
             isDeleting = true;
-            speed = 2000;  // pause before deleting
+            speed = 2000;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             phraseIndex = (phraseIndex + 1) % phrases.length;
@@ -511,7 +587,7 @@
         setTimeout(typeEffect, speed);
     }
     
-    // 2) Animate progress bars on viewport (professional touch)
+    // Progress bars animation on scroll
     function animateProgressBars() {
         const progressBars = document.querySelectorAll('.progress');
         progressBars.forEach(bar => {
@@ -522,7 +598,6 @@
         });
     }
     
-    // Intersection Observer for progress bars
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -542,10 +617,8 @@
         observer.observe(section);
     });
     
-    // also trigger on load for any visible
     window.addEventListener('load', () => {
         animateProgressBars();
-        // also set any progress that's already visible without observer
         const immediateBars = document.querySelectorAll('.progress');
         immediateBars.forEach(bar => {
             const w = bar.getAttribute('data-width');
@@ -553,36 +626,13 @@
         });
     });
     
-    // 3) Interactive "Say Hello" button + cool console greeting
-    const ctaBtn = document.getElementById('portfolioCta');
-    if (ctaBtn) {
-        ctaBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert("✨ Hi there! I'm Muskan. Thanks for exploring my universe — let's connect and build amazing AI solutions together! ✨");
-            console.log("%c👋 Portfolio visited with love — Muskan Imtiaz, AI dreamer & creator", "color: #38bdf8; font-size: 16px; font-weight: bold;");
-        });
-    }
-    
-    // 4) Optional: background parallax subtle effect + mouse move? adds elegance
-    document.addEventListener('mousemove', (e) => {
-        const circles = document.querySelectorAll('.circles li');
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        circles.forEach((circle, idx) => {
-            const speed = 10 + idx * 0.5;
-            const moveX = (mouseX - 0.5) * speed;
-            const moveY = (mouseY - 0.5) * speed;
-            circle.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        });
-    });
-    
-    // start typewriter
+    // Start typewriter
     typeEffect();
     
-    // additional greeting in console
-    console.log("%c🚀 Muskan's Portfolio — Bridging AI, Creativity & Code", "color: #10b981; font-size: 14px;");
+    // Console greeting
+    console.log("%c✨ Muskan's Portfolio | AI Enthusiast | GitHub: muskanjutt16", "color: #38bdf8; font-size: 14px; font-weight: bold;");
     
-    // also add hover effect for hobby badges
+    // Hover effects for hobby badges
     const hobbySpans = document.querySelectorAll('.hobbies span');
     hobbySpans.forEach(span => {
         span.addEventListener('mouseenter', () => {
@@ -593,7 +643,19 @@
             span.style.transform = 'scale(1)';
         });
     });
+    
+    // Subtle mouse parallax for floating circles
+    document.addEventListener('mousemove', (e) => {
+        const circles = document.querySelectorAll('.circles li');
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+        circles.forEach((circle, idx) => {
+            const speed = 8 + idx * 0.4;
+            const moveX = (mouseX - 0.5) * speed;
+            const moveY = (mouseY - 0.5) * speed;
+            circle.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    });
 </script>
 </body>
 </html>
-```
